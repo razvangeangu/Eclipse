@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DA7F030E1C2F8984003AE2B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F030D1C2F8984003AE2B6 /* AppDelegate.swift */; };
-		DA7F03101C2F8984003AE2B6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DA7F030F1C2F8984003AE2B6 /* GameScene.sks */; };
 		DA7F03121C2F8984003AE2B6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F03111C2F8984003AE2B6 /* GameScene.swift */; };
 		DA7F03141C2F8984003AE2B6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F03131C2F8984003AE2B6 /* GameViewController.swift */; };
 		DA7F03171C2F8984003AE2B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7F03151C2F8984003AE2B6 /* Main.storyboard */; };
@@ -16,6 +15,9 @@
 		DA7F031C1C2F8984003AE2B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA7F031A1C2F8984003AE2B6 /* LaunchScreen.storyboard */; };
 		DA7F03271C2F8984003AE2B6 /* EclipseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F03261C2F8984003AE2B6 /* EclipseTests.swift */; };
 		DA7F03321C2F8984003AE2B6 /* EclipseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F03311C2F8984003AE2B6 /* EclipseUITests.swift */; };
+		DAE192101C2F8FC800596E53 /* RGBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1920F1C2F8FC800596E53 /* RGBorder.swift */; };
+		DAE192121C2F936D00596E53 /* RGSpaceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE192111C2F936D00596E53 /* RGSpaceObject.swift */; };
+		DAE192141C2F949400596E53 /* RGSpaceObjectsGeneration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE192131C2F949400596E53 /* RGSpaceObjectsGeneration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 /* Begin PBXFileReference section */
 		DA7F030A1C2F8984003AE2B6 /* Eclipse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eclipse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7F030D1C2F8984003AE2B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA7F030F1C2F8984003AE2B6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		DA7F03111C2F8984003AE2B6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		DA7F03131C2F8984003AE2B6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		DA7F03161C2F8984003AE2B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		DA7F032D1C2F8984003AE2B6 /* EclipseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EclipseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7F03311C2F8984003AE2B6 /* EclipseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EclipseUITests.swift; sourceTree = "<group>"; };
 		DA7F03331C2F8984003AE2B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAE1920F1C2F8FC800596E53 /* RGBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBorder.swift; sourceTree = "<group>"; };
+		DAE192111C2F936D00596E53 /* RGSpaceObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGSpaceObject.swift; sourceTree = "<group>"; };
+		DAE192131C2F949400596E53 /* RGSpaceObjectsGeneration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RGSpaceObjectsGeneration.swift; path = ../RGSpaceObjectsGeneration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				DA7F030D1C2F8984003AE2B6 /* AppDelegate.swift */,
-				DA7F030F1C2F8984003AE2B6 /* GameScene.sks */,
 				DA7F03111C2F8984003AE2B6 /* GameScene.swift */,
+				DAE192111C2F936D00596E53 /* RGSpaceObject.swift */,
+				DAE192131C2F949400596E53 /* RGSpaceObjectsGeneration.swift */,
+				DAE1920F1C2F8FC800596E53 /* RGBorder.swift */,
 				DA7F03131C2F8984003AE2B6 /* GameViewController.swift */,
 				DA7F03151C2F8984003AE2B6 /* Main.storyboard */,
 				DA7F03181C2F8984003AE2B6 /* Assets.xcassets */,
@@ -199,13 +205,16 @@
 				TargetAttributes = {
 					DA7F03091C2F8984003AE2B6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9Y67R9P3DN;
 					};
 					DA7F03211C2F8984003AE2B6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9Y67R9P3DN;
 						TestTargetID = DA7F03091C2F8984003AE2B6;
 					};
 					DA7F032C1C2F8984003AE2B6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9Y67R9P3DN;
 						TestTargetID = DA7F03091C2F8984003AE2B6;
 					};
 				};
@@ -235,7 +244,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA7F03101C2F8984003AE2B6 /* GameScene.sks in Resources */,
 				DA7F031C1C2F8984003AE2B6 /* LaunchScreen.storyboard in Resources */,
 				DA7F03191C2F8984003AE2B6 /* Assets.xcassets in Resources */,
 				DA7F03171C2F8984003AE2B6 /* Main.storyboard in Resources */,
@@ -263,8 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE192101C2F8FC800596E53 /* RGBorder.swift in Sources */,
 				DA7F03121C2F8984003AE2B6 /* GameScene.swift in Sources */,
+				DAE192141C2F949400596E53 /* RGSpaceObjectsGeneration.swift in Sources */,
 				DA7F03141C2F8984003AE2B6 /* GameViewController.swift in Sources */,
+				DAE192121C2F936D00596E53 /* RGSpaceObject.swift in Sources */,
 				DA7F030E1C2F8984003AE2B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,10 +418,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Eclipse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CHO.Eclipse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -418,10 +433,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Eclipse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CHO.Eclipse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -494,6 +513,7 @@
 				DA7F03381C2F8984003AE2B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA7F03391C2F8984003AE2B6 /* Build configuration list for PBXNativeTarget "EclipseTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +522,7 @@
 				DA7F033B1C2F8984003AE2B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA7F033C1C2F8984003AE2B6 /* Build configuration list for PBXNativeTarget "EclipseUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +531,7 @@
 				DA7F033E1C2F8984003AE2B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,27 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="center" semanticContentAttribute="playback" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 Razvan-Gabriel Geangu. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmC-KP-ECI">
+                                <rect key="frame" x="0.0" y="559" width="600" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="i5W-1B-qSt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eclipse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrF-pN-QyV">
+                                <rect key="frame" x="242" y="273" width="116" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="XQ1-ne-dHq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0Xq-P5-ArJ">
+                                <rect key="frame" x="17" y="45" width="566" height="303"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="303" id="DT3-46-CHf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gmC-KP-ECI" secondAttribute="trailing" id="BWg-ZI-VV0"/>
+                            <constraint firstItem="zrF-pN-QyV" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="253" id="Iua-pj-2C7"/>
+                            <constraint firstItem="gmC-KP-ECI" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="LfT-Xs-nuC"/>
+                            <constraint firstItem="zrF-pN-QyV" firstAttribute="centerX" secondItem="0Xq-P5-ArJ" secondAttribute="centerX" id="Sky-on-P0d"/>
+                            <constraint firstItem="0Xq-P5-ArJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bsb-Vc-1Sc"/>
+                            <constraint firstItem="zrF-pN-QyV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cGA-st-6pk"/>
+                            <constraint firstItem="0Xq-P5-ArJ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-3" id="iZn-Ry-CrI"/>
+                            <constraint firstItem="0Xq-P5-ArJ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="25" id="nDk-f0-Jnv"/>
+                            <constraint firstItem="gmC-KP-ECI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="oLg-YF-8Fc"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-54" y="432"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="245" height="245"/>
+    </resources>
 </document>
