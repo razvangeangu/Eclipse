@@ -13,7 +13,7 @@ class RGSpaceObject: SKShapeNode {
     
     init(size: CGSize) {
         super.init()
-        let path = CGPathCreateWithEllipseInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height), nil)
+        let path = CGPath(ellipseIn: CGRect(x: 0, y: 0, width: size.width, height: size.height), transform: nil)
         self.path = path
     }
     

@@ -16,7 +16,7 @@ var sun: RGSpaceObject!
 var movementManager = CMMotionManager()
 var scoreLabel: SKLabelNode!
 var highScoreLabel: SKLabelNode!
-var timer = NSTimer()
+var timer = Timer()
 var score: Int = 0
 var highScore = 0
 var scoreString = ""
@@ -25,9 +25,9 @@ var gameStarted = false
 
 class GameScene: SKScene {
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         /* Setup your scene here */
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         
         // Setup border
 //        border = RGBorder(size: CGSize(width: view.frame.width, height: 20))
@@ -39,13 +39,13 @@ class GameScene: SKScene {
         let tapToStartLabel = SKLabelNode(text: "Tap to start!")
         tapToStartLabel.name = "tapToStartLabel"
         tapToStartLabel.position = view.center
-        tapToStartLabel.fontColor = UIColor.blackColor()
+        tapToStartLabel.fontColor = UIColor.black
         tapToStartLabel.fontSize = 32
         addChild(tapToStartLabel)
         
         // Add score label
         scoreLabel = SKLabelNode()
-        scoreLabel.fontColor = UIColor.blackColor()
+        scoreLabel.fontColor = UIColor.black
         scoreLabel.text = ""
         scoreLabel.fontSize = 32
         scoreLabel.position.x = view.center.x
@@ -53,17 +53,17 @@ class GameScene: SKScene {
         addChild(scoreLabel)
         
         // Adding the highScore label
-        let highScoreDefault = NSUserDefaults.standardUserDefaults()
+        let highScoreDefault = UserDefaults.standard
         
-        if(highScoreDefault.valueForKey("highScore") != nil) {
-            highScore = highScoreDefault.valueForKey("highScore") as! NSInteger
+        if(highScoreDefault.value(forKey: "highScore") != nil) {
+            highScore = highScoreDefault.value(forKey: "highScore") as! NSInteger
         }
         
         let highScoreInitLabel = SKLabelNode(text: NSString(format: "Highscore: %i", highScore) as String)
         highScoreInitLabel.name = "highScoreInitLabel"
         highScoreInitLabel.position.x = view.center.x
         highScoreInitLabel.position.y = view.center.y + 45
-        highScoreInitLabel.fontColor = UIColor.blackColor()
+        highScoreInitLabel.fontColor = UIColor.black
         highScoreInitLabel.fontSize = 18
         addChild(highScoreInitLabel)
     }
@@ -88,28 +88,28 @@ class GameScene: SKScene {
 //        border.start()
         
         // Removing the highScore label from the view
-        let highScoreInitLabel = childNodeWithName("highScoreInitLabel")
+        let highScoreInitLabel = childNode(withName: "highScoreInitLabel")
         highScoreInitLabel?.removeFromParent()
         
         // Changing the background color of the view
-        backgroundColor = UIColor.blackColor()
+        backgroundColor = UIColor.black
         
         // Removing the Start label from the view
-        let tapToStartLabel = childNodeWithName("tapToStartLabel")
+        let tapToStartLabel = childNode(withName: "tapToStartLabel")
         tapToStartLabel?.removeFromParent()
         
         // Moving the score to the top of the view and setting new font style
         scoreLabel.position.x = view!.center.x
         scoreLabel.position.y = view!.center.y*2 - 40
-        scoreLabel.fontColor = UIColor.whiteColor()
+        scoreLabel.fontColor = UIColor.white
         
         // Removing Try again label from the view
-        let tapToTryAgainLabel = childNodeWithName("tapToTryAgainLabel")
+        let tapToTryAgainLabel = childNode(withName: "tapToTryAgainLabel")
         tapToTryAgainLabel?.removeFromParent()
         
         // Reseting the score to the default value
         score = 1000
-        let highScoreLabel = childNodeWithName("highScoreLabel")
+        let highScoreLabel = childNode(withName: "highScoreLabel")
         highScoreLabel?.removeFromParent()
         
         // Setup main objects
@@ -117,10 +117,10 @@ class GameScene: SKScene {
         makeMoon()
         
         // Starting the timer with score as a selector
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateScore"), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(GameScene.updateScore), userInfo: nil, repeats: true)
         
         // Record data from accelerometer
-        movementManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) { (accelerometerData: CMAccelerometerData?, NSError) -> Void in
+        movementManager.startAccelerometerUpdates(to: OperationQueue.current!) { (accelerometerData: CMAccelerometerData?, NSError) -> Void in
             self.updatePos(accelerometerData!.acceleration)
             if(NSError != nil) {
                 print("\(NSError)")
@@ -135,7 +135,7 @@ class GameScene: SKScene {
     func stop() {
 //        border.hidden = true
         gameStarted = false
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.white
         
         // Stoping the timer and getting data from the sensor
         timer.invalidate()
@@ -147,7 +147,7 @@ class GameScene: SKScene {
         
         // Moving the score label to the center of the view and changing its color
         scoreLabel.position = view!.center
-        scoreLabel.fontColor = UIColor.blackColor()
+        scoreLabel.fontColor = UIColor.black
         
         // Adding Try again label to the view and setting its style
         let tapToTryAgainLabel = SKLabelNode(text: "Tap to try again..")
@@ -155,7 +155,7 @@ class GameScene: SKScene {
         tapToTryAgainLabel.position.y = view!.center.y - 30
         tapToTryAgainLabel.fontSize = 18
         tapToTryAgainLabel.name = "tapToTryAgainLabel"
-        tapToTryAgainLabel.fontColor = UIColor.blackColor()
+        tapToTryAgainLabel.fontColor = UIColor.black
         addChild(tapToTryAgainLabel)
         
         // Adding Highscore label to the view and setting its style
@@ -164,7 +164,7 @@ class GameScene: SKScene {
         highScoreLabel.position.y = view!.center.y + 40
         highScoreLabel.fontSize = 18
         highScoreLabel.name = "highScoreLabel"
-        highScoreLabel.fontColor = UIColor.blackColor()
+        highScoreLabel.fontColor = UIColor.black
         
         // Setting the Highscore value
         if(score > highScore) {
@@ -173,7 +173,7 @@ class GameScene: SKScene {
         }
         
         // Synchronizing core data with Highscore
-        let highScoreDefault = NSUserDefaults.standardUserDefaults()
+        let highScoreDefault = UserDefaults.standard
         highScoreDefault.setValue(highScore, forKey: "highScore")
         highScoreDefault.synchronize()
         highScoreString = NSString(format: "Highscore: %i", highScore) as String
@@ -181,7 +181,7 @@ class GameScene: SKScene {
         addChild(highScoreLabel)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Condition: as long as the game is stoped when touchesBegan the game starts, else nothing happens
         if(!gameStarted) {
@@ -191,11 +191,11 @@ class GameScene: SKScene {
         //border.start()
     }
    
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
     }
     
-    func updatePos(acceleration: CMAcceleration) {
+    func updatePos(_ acceleration: CMAcceleration) {
         let x: CGFloat = sun.position.x + CGFloat(acceleration.x) * 10
         let y: CGFloat = sun.position.y + CGFloat(acceleration.y) * 10
         let xM: CGFloat = moon.position.x + CGFloat(acceleration.x) * -10
@@ -269,13 +269,13 @@ class GameScene: SKScene {
         sun = RGSpaceObject(size: CGSize(width: SUN_WIDTH, height: SUN_HEIGHT))
         
         // Setting position
-        sun.position = CGPointMake(x, y)
+        sun.position = CGPoint(x: x, y: y)
         
         // Setting zPosition under 'moon' object
         sun.zPosition = 1
         
         // Filling with whiteColor
-        sun.fillColor = UIColor.whiteColor()
+        sun.fillColor = UIColor.white
         
         // Adding to the view
         addChild(sun)
@@ -292,23 +292,23 @@ class GameScene: SKScene {
         moon = RGSpaceObject(size: CGSize(width: MOON_WIDTH, height: MOON_HEIGHT))
         
         // Setting position
-        moon.position = CGPointMake(x, y)
+        moon.position = CGPoint(x: x, y: y)
         
         // Setting zPosition above 'sun' object
         moon.zPosition = 2
         
         // Filling with blackColor
-        moon.fillColor = UIColor.blackColor()
+        moon.fillColor = UIColor.black
         
         // Setting stroke color to white
-        moon.strokeColor = UIColor.whiteColor()
+        moon.strokeColor = UIColor.white
         
         // Adding to the view
         addChild(moon)
     }
     
     // Function to check if two objects are almost in the exact position
-    func collisionDetected(a: RGSpaceObject, b: RGSpaceObject) {
+    func collisionDetected(_ a: RGSpaceObject, b: RGSpaceObject) {
         // Vectorial distance in two dimensional (x,y) coordinates system
         if(((pow(abs(a.position.x - b.position.x),2) + pow(abs(a.position.y - b.position.y),2)) < 100)) {
             // Adding vibrate feedback
