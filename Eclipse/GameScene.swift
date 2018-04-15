@@ -69,7 +69,7 @@ class GameScene: SKScene {
     }
 
     // Function to update the score when the game stops
-    func updateScore() {
+    @objc func updateScore() {
         
         if(score == 0) {
             timer.invalidate() // stop the timer
@@ -122,8 +122,8 @@ class GameScene: SKScene {
         // Record data from accelerometer
         movementManager.startAccelerometerUpdates(to: OperationQueue.current!) { (accelerometerData: CMAccelerometerData?, NSError) -> Void in
             self.updatePos(accelerometerData!.acceleration)
-            if(NSError != nil) {
-                print("\(NSError)")
+            if let error = NSError {
+                print(error)
             }
             // Check collision and update the score
             self.collisionDetected(moon, b: sun)

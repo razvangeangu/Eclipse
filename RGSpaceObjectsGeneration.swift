@@ -31,7 +31,7 @@ class RGSpaceObjectsGeneration: SKSpriteNode {
         generationTimer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector: #selector(RGSpaceObjectsGeneration.generateSpaceObject), userInfo: nil, repeats: true)
     }
     
-    func generateSpaceObject() {
+    @objc func generateSpaceObject() {
         let x = size.width/2 + SPACE_OBJECT_WIDTH/2
         let y = CGFloat(arc4random_uniform(UInt32(size.height))) - size.height/2
         let spaceobject = RGSpaceObject(size: CGSize(width: SPACE_OBJECT_WIDTH, height: SPACE_OBJECT_HEIGHT))
